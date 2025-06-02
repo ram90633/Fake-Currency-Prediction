@@ -56,8 +56,8 @@ This project uses a **custom Convolutional Neural Network (CNN)** architecture t
 
 ## 🎯 Model Evaluation on Validation Set
 
-- **Validation Loss:** ~0.135  
-- **Validation Accuracy:** **98.4%**
+- **Validation Loss:** **0.280**  
+- **Validation Accuracy:** **87.5%**
 
 ---
 
