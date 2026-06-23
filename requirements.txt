@@ -1,0 +1,11 @@
+# IMPORTANT: this MUST match the Keras/TensorFlow that SAVED your model.
+# Your model.keras was saved by Colab's modern Keras 3 (TF >= 2.16), so we need >= 2.16.
+# Confirm the exact version in Colab:  import tensorflow as tf; print(tf.__version__)
+# Then set the line below to that EXACT version (e.g. ==2.17.0 or ==2.18.0).
+# tensorflow-cpu is used (no GPU on servers) to keep the image smaller.
+tensorflow-cpu==2.17.0
+
+Flask==3.0.3
+gunicorn==21.2.0     # production WSGI server used in Docker
+Pillow==10.4.0       # image loading (no OpenCV needed)
+numpy>=1.26          # TF 2.16+ works with numpy 1.26+ or 2.x
