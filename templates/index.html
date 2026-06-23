@@ -1,1 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake Currency Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="card">
+        <h1>💵 Fake Currency Detection</h1>
+        <p class="subtitle">Upload an Indian currency note image to check if it is real or fake.</p>
 
+        <form method="POST" enctype="multipart/form-data">
+            <label class="file-input">
+                <input type="file" name="image" accept="image/*" required>
+                <span>Choose an image…</span>
+            </label>
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if error %}
+            <div class="result error">{{ error }}</div>
+        {% endif %}
+
+        {% if label %}
+            <div class="result {{ 'real' if label == 'real' else 'fake' }}">
+                <p class="verdict">Prediction: <strong>{{ label | upper }}</strong></p>
+                <p class="confidence">Confidence: {{ confidence }}%</p>
+            </div>
+            {% if image_data %}
+                <img class="preview" src="data:image/*;base64,{{ image_data }}" alt="uploaded note">
+            {% endif %}
+        {% endif %}
+
+        <p class="footer">Model served via Flask + TensorFlow · CI/CD: GitHub → Jenkins → Docker → Render</p>
+    </div>
+</body>
+</html>
